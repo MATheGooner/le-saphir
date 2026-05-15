@@ -242,15 +242,15 @@
             <h2 class="reservation-title">Plan Your Evening at Le Saphir</h2>
             <p class="reservation-intro">Share your reservation details and our team will prepare a refined dining experience around your occasion.</p>
 
-            <form class="reservation-form">
+            <form class="reservation-form" id="contact-form">
                 <div class="form-group">
                     <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" name="full-name" autocomplete="name">
+                    <input type="text" id="full-name" name="from_name" autocomplete="name">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" autocomplete="email">
+                    <input type="email" id="email" name="from_email" autocomplete="email">
                 </div>
 
                 <div class="form-group">
@@ -286,7 +286,7 @@
 
                 <div class="form-group full-width">
                     <label for="requests">Special Requests</label>
-                    <textarea id="requests" name="requests" placeholder="Dietary notes, seating preferences, or occasion details"></textarea>
+                    <textarea id="requests" name="message" placeholder="Dietary notes, seating preferences, or occasion details"></textarea>
                 </div>
 
                 <div class="form-actions">
@@ -407,6 +407,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
