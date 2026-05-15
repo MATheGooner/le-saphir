@@ -8,7 +8,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Smooth scrolling for anchor links (optional enhancement)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

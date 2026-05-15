@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Saphir - Contact & Reservations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-hero {
+            height: 68vh;
+            min-height: 460px;
+            background-image: url('images/cta.jpeg');
+            background-position: center;
+        }
+
+        .contact-hero .hero-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.82));
+        }
+
+        .reservation-section {
+            background: #0b0b0b;
+            padding: 100px 20px;
+        }
+
+        .reservation-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: var(--gold);
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .reservation-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.3rem, 4vw, 3.4rem);
+            color: var(--cream);
+            text-align: center;
+            line-height: 1.12;
+            margin-bottom: 1rem;
+        }
+
+        .reservation-intro {
+            max-width: 620px;
+            margin: 0 auto 3.5rem;
+            color: rgba(245, 242, 234, 0.82);
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        .reservation-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.4rem;
+            padding: 2.4rem;
+            background: #111111;
+            border: 1px solid rgba(201, 169, 110, 0.18);
+            border-radius: 8px;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid rgba(245, 242, 234, 0.16);
+            border-radius: 6px;
+            background: #0b0b0b;
+            color: var(--cream);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 0.95rem 1rem;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            background-color: #101010;
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            padding-top: 0.6rem;
+        }
+
+        .reservation-submit {
+            min-width: 220px;
+        }
+
+        .contact-info-section {
+            background: #111111;
+            border-top: 1px solid rgba(201, 169, 110, 0.14);
+            padding: 90px 20px;
+        }
+
+        .contact-info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-item {
+            min-height: 190px;
+            padding: 2rem;
+            background: #0b0b0b;
+            border: 1px solid rgba(201, 169, 110, 0.16);
+            border-radius: 8px;
+        }
+
+        .contact-info-item p {
+            color: rgba(245, 242, 234, 0.8);
+            font-size: 0.98rem;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .contact-hero {
+                height: 64vh;
+                min-height: 420px;
+            }
+
+            .reservation-section,
+            .contact-info-section {
+                padding: 80px 20px;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero {
+                height: 62vh;
+                min-height: 390px;
+                background-attachment: scroll;
+            }
+
+            .reservation-section,
+            .contact-info-section {
+                padding: 70px 18px;
+            }
+
+            .reservation-form {
+                grid-template-columns: 1fr;
+                padding: 1.4rem;
+                gap: 1.15rem;
+            }
+
+            .reservation-submit {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-info-item {
+                min-height: auto;
+                padding: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Le Saphir</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="index.html#main-courses">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a class="reserve-btn" href="contact.html">Reserve a Table</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="contact-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">RESERVATIONS</p>
+            <h2 class="hero-title">Reserve Your Experience</h2>
+            <p class="hero-description">Secure your table and indulge in an unforgettable fine dining experience.</p>
+        </div>
+    </section>
+
+    <section class="reservation-section" id="reservation">
+        <div class="reservation-container">
+            <p class="section-label">Reserve a Table</p>
+            <h2 class="reservation-title">Plan Your Evening at Le Saphir</h2>
+            <p class="reservation-intro">Share your reservation details and our team will prepare a refined dining experience around your occasion.</p>
+
+            <form class="reservation-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests">
+                        <option value="">Select guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7 Guests</option>
+                        <option value="8">8 Guests</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date (DD/MM/YYYY)</label>
+                    <input type="date" id="date" name="date" placeholder="DD/MM/YYYY" aria-describedby="date-format">
+                    <small class="form-helper" id="date-format">Format: DD/MM/YYYY</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="requests">Special Requests</label>
+                    <textarea id="requests" name="requests" placeholder="Dietary notes, seating preferences, or occasion details"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-primary reservation-submit" type="submit">Reserve Table</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact-info-section">
+        <div class="contact-info-container">
+            <p class="section-label">Contact</p>
+            <h2 class="reservation-title">Visit Us</h2>
+            <p class="reservation-intro">For private dining, celebrations, or reservation updates, our team is ready to assist.</p>
+
+            <div class="contact-info-grid">
+                <div class="contact-info-item contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0Z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </span>
+                    <div class="contact-text">
+                        <h4>Address</h4>
+                        <p>123 Luxury Avenue, Paris</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92Z"></path>
+                        </svg>
+                    </span>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p>+33 1 23 45 67 89</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                            <path d="m3 7 9 6 9-6"></path>
+                        </svg>
+                    </span>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>reservations@lesaphir.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 7v5l3 2"></path>
+                        </svg>
+                    </span>
+                    <div class="contact-text">
+                        <h4>Opening Hours</h4>
+                        <p>Mon - Sun<br>6:00 PM - 11:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer-section">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-brand">Le Saphir</h3>
+                    <p class="footer-description">"A refined fine-dining experience where elegance meets exceptional cuisine."</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="index.html#main-courses">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Dining Info</h4>
+                    <ul class="footer-info">
+                        <li class="footer-info-group">
+                            <p class="footer-info-heading">Hours</p>
+                            <p class="footer-info-text">Mon  –  Sun</p>
+                            <p class="footer-info-text">6:00 PM  –  11:00 PM</p>
+                        </li>
+                        <li class="footer-info-group">
+                            <p class="footer-info-heading">Reservations</p>
+                            <p class="footer-info-text">Required</p>
+                        </li>
+                        <li class="footer-info-group">
+                            <p class="footer-info-heading">Dress Code</p>
+                            <p class="footer-info-text">Smart Elegant</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>Address: 123 Luxury Avenue, Paris</li>
+                        <li>Phone: +33 1 23 45 67 89</li>
+                        <li>Email: reservations@lesaphir.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Le Saphir. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
