@@ -1,0 +1,32 @@
+{
+  "name": "le-saphir",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "db:migrate": "psql %DATABASE_URL% -v ON_ERROR_STOP=1 -f migrations/0001_milestone_2.sql",
+    "db:migrate:staff": "psql %DATABASE_URL% -v ON_ERROR_STOP=1 -f migrations/0003_staff.sql",
+    "db:seed": "psql %DATABASE_URL% -v ON_ERROR_STOP=1 -f migrations/0002_seed.sql",
+    "staff:create-admin": "node scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "drizzle-orm": "^0.45.4",
+    "next": "^16.4.2",
+    "postgres": "^3.4.9",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
